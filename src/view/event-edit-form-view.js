@@ -197,19 +197,19 @@ export default class EventEditFormView extends AbstractView {
   #event = null;
   #isNewEvent = null;
   #handleFormSubmit = null;
-  #handleArrowClick = null;
+  #handleEditClose = null;
 
   constructor({
     event = BLANK_EVENT,
     isNewEvent = true,
     onFormSubmit,
-    onArrowClick
+    onEditClose
   }) {
     super();
     this.#event = event;
     this.#isNewEvent = isNewEvent;
     this.#handleFormSubmit = onFormSubmit;
-    this.#handleArrowClick = onArrowClick;
+    this.#handleEditClose = onEditClose;
 
     this.element.querySelector('form')
       .addEventListener('submit', this.#formSubmitHandler);
@@ -229,7 +229,7 @@ export default class EventEditFormView extends AbstractView {
 
   #arrowClickHandler = (evt) => {
     evt.preventDefault();
-    this.#handleArrowClick();
+    this.#handleEditClose();
   };
 }
 

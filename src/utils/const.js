@@ -1,5 +1,5 @@
 export const BLANK_EVENT = {
-  destination: '',
+  destination: null,
   type: 'flight',
   offers: [],
   dateFrom: new Date(),
@@ -35,4 +35,11 @@ export const FilterType = {
   FUTURE: 'future',
   PRESENT: 'present',
   PAST: 'past',
+};
+
+export const TripMessages = {
+  NO_EVENTS: 'Click New Event to create your first point',
+  NO_PAST_EVENTS: 'There are no past events now',
+  NO_PRESENT_EVENTS: 'There are no present events now',
+  NO_FUTURE_EVENTS: 'There are no future events now',
 };
