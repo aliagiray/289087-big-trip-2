@@ -122,23 +122,33 @@ const createEventTemplate = (event) => {
 
 export default class EventView extends AbstractView {
   #event = null;
-  #handleArrowClick = null;
+  #handleEditOpen = null;
+  #handleFavoriteClick = null;
 
-  constructor({ event, onArrowClick }) {
+  constructor({ event, onEditOpen, onFavoriteClick }) {
     super();
     this.#event = event;
-    this.#handleArrowClick = onArrowClick;
+    this.#handleEditOpen = onEditOpen;
+    this.#handleFavoriteClick = onFavoriteClick;
 
     this.element.querySelector('.event__rollup-btn')
-      .addEventListener('click', this.#arrowClickHandler);
+      .addEventListener('click', this.#editOpenHandler);
+
+    this.element.querySelector('.event__favorite-btn')
+      .addEventListener('click', this.#favoriteClickHandler);
   }
 
   get template() {
     return createEventTemplate(this.#event);
   }
 
-  #arrowClickHandler = (evt) => {
+  #editOpenHandler = (evt) => {
     evt.preventDefault();
-    this.#handleArrowClick();
+    this.#handleEditOpen();
+  };
+
+  #favoriteClickHandler = (evt) => {
+    evt.preventDefault();
+    this.#handleFavoriteClick();
   };
 }

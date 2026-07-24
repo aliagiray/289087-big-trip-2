@@ -1,7 +1,7 @@
 import FiltersView from './view/filters-view.js';
 import TripInfoView from './view/trip-info-view.js';
 import EventsModel from './model/events-model.js';
-import TripPresenter from './presenter/trip-presenter.js';
+import TripBoardPresenter from './presenter/trip-board-presenter.js';
 import { render, RenderPosition } from './framework/render.js';
 import { getFilters } from './mock/filters.js';
 
@@ -10,7 +10,7 @@ const tripMainElement = document.querySelector('.trip-main');
 const tripControlsElement = document.querySelector('.trip-controls__filters');
 
 const eventsModel = new EventsModel();
-const tripPresenter = new TripPresenter({
+const tripPresenter = new TripBoardPresenter({
   tripContainer: tripEventsElement,
   eventsModel,
 });
